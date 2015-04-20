@@ -5,4 +5,4 @@ MAINTAINER "DataDog" <info@datadog.lt>
 VOLUME /var/www
 
 # Add default config
-COPY default.conf /etc/nginx/sites-enabled/laravel.conf
+COPY default.conf /etc/nginx/sites-enabled/symfony.conf
