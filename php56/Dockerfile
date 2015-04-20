@@ -18,10 +18,12 @@ RUN yum install --enablerepo=remi,remi-php56 -y \
   php-cli \
   php-mcrypt \
   php-pdo \
+  php-process \
   php-mysql \
   php-mbstring \
   php-intl \
   php-soap \
+  php-xml \
   && yum clean all
 
 # change permissions for default php session and wsdl cache directories
