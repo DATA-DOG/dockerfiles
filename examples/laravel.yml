@@ -22,3 +22,13 @@ mysql:
   image: mysql:5.6
   env_file:
     - .env
+
+artisan:
+  image: datadoglt/php-fpm-56
+  user: www
+  working_dir: /var/www
+  entrypoint: /var/www/artisan
+  command: queue:listen --tries=2 --timeout=360
+  volumes_from: [app]
+  links:
+   - mysql
