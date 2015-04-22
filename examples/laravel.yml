@@ -13,7 +13,7 @@ web:
    - "80:80"
 
 php:
-  image: datadoglt/php-fpm-56
+  image: datadoglt/php56
   volumes_from: [app]
   links:
    - mysql
