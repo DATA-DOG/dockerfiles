@@ -14,14 +14,18 @@ RUN yum install -y $REMI_REPO && yum clean all
 # if soap extension is missing it fails to launch fpm
 # related to soap wsdl cache dir in www.conf
 RUN yum install --enablerepo=remi,remi-php56 -y \
-  php-fpm \
+  php-bcmath \
   php-cli \
   php-mcrypt \
-  php-pdo \
-  php-process \
+  php-curl \
+  php-fpm \
+  php-gd \
+  php-iconv \
+  php-intl \
   php-mysql \
   php-mbstring \
-  php-intl \
+  php-pdo \
+  php-process \
   php-soap \
   php-xml \
   && yum clean all
@@ -37,3 +41,8 @@ RUN echo "date.timezone=UTC" > /etc/php.d/30-timezone.ini && \
 
 # copy default configuration of fpm
 COPY www.conf /etc/php-fpm.d/www.conf
+
+# install composer
+RUN curl -sS https://getcomposer.org/installer | php -- \
+        --install-dir=/usr/bin \
+        --filename=composer
