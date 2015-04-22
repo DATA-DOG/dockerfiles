@@ -1,0 +1,17 @@
+app:
+  image: datadoglt/base
+  command: /bin/true
+  volumes:
+    - ".:/var/www"
+
+web:
+  build: datadoglt/apache
+  volumes_from: [app]
+  links:
+   - php
+  ports:
+   - "80:80"
+
+php:
+  image: datadoglt/php-fpm-56
+  volumes_from: [app]
