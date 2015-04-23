@@ -13,5 +13,5 @@ web:
    - "80:80"
 
 php:
-  image: datadoglt/php56
+  image: datadoglt/php:56
   volumes_from: [app]

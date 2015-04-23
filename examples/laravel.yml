@@ -13,7 +13,7 @@ web:
    - "80:80"
 
 php:
-  image: datadoglt/php56
+  image: datadoglt/php:56
   volumes_from: [app]
   links:
    - mysql
@@ -24,7 +24,7 @@ mysql:
     - .env
 
 artisan:
-  image: datadoglt/php-fpm-56
+  image: datadoglt/php:56
   user: www
   working_dir: /var/www
   entrypoint: /var/www/artisan
