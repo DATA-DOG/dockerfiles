@@ -31,8 +31,7 @@ RUN yum install --enablerepo=remi,remi-php56 -y \
   && yum clean all
 
 # change permissions for default php session and wsdl cache directories
-RUN chown www:www -R /var/lib/php/session && \
-    chown www:www -R /var/lib/php/wsdlcache
+RUN chown www:www -R /var/lib/php
 
 # set custom configuration
 RUN echo "date.timezone=UTC" > /etc/php.d/30-timezone.ini && \
