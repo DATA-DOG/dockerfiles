@@ -15,6 +15,7 @@ web:
 php:
   image: datadoglt/php:56
   volumes_from: [app]
+  volumes: ["./app/sessions:/var/lib/php/session"]
   links:
    - mysql
 
