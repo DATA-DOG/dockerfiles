@@ -21,7 +21,7 @@ fi
 
 if [ -f "$WWW/bower.json" ]; then
     echo "Running in bower"
-    bower install
+    bower --allow-root install
 fi
 
 if [ -f "$WWW/gulpfile.js" ] && [ ! -z "$GULP_TASK" ]; then

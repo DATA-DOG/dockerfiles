@@ -18,6 +18,4 @@ RUN npm install -g \
 ADD run.sh /usr/bin/run-webtools
 RUN chmod +x /usr/bin/run-webtools
 
-USER www
-
 CMD run-webtools
