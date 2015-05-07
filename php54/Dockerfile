@@ -1,7 +1,7 @@
 FROM datadoglt/base:latest
 MAINTAINER "DataDog" <info@datadog.lt>
 
-CMD /usr/sbin/php-fpm -F
+CMD /usr/sbin/php-fpm --nodaemonize --force-stderr
 
 EXPOSE 9000
 
@@ -26,7 +26,7 @@ RUN yum install -y \
   && yum clean all
 
 # change permissions for default php session and wsdl cache directories
-RUN mkdir -p /var/lib/php/session && \ 
+RUN mkdir -p /var/lib/php/session && \
     mkdir -p /var/lib/php/wsdlcache && \
     chown www:www -R /var/lib/php/session && \
     chown www:www -R /var/lib/php/wsdlcache

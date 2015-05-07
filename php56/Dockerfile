@@ -3,7 +3,7 @@ MAINTAINER "DataDog" <info@datadog.lt>
 
 ENV REMI_REPO http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
 
-CMD /usr/sbin/php-fpm -F
+CMD /usr/sbin/php-fpm --nodaemonize --force-stderr
 
 EXPOSE 9000
 
