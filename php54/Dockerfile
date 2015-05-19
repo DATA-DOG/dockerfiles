@@ -1,7 +1,7 @@
 FROM datadoglt/base:latest
 MAINTAINER "DataDog" <info@datadog.lt>
 
-CMD /usr/sbin/php-fpm --nodaemonize --force-stderr
+CMD /usr/sbin/php-fpm --nodaemonize
 
 EXPOSE 9000
 
