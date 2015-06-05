@@ -2,13 +2,15 @@ FROM datadoglt/base:latest
 MAINTAINER "DataDog" <info@datadog.lt>
 
 ENV REMI_REPO http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+ENV GITHUB_TOKEN 89fdb82a7b2c50bf20c39bfb87614acd68901e80
+ENV WWW_DIR /var/www
 
 COPY entrypoint.sh /entrypoint.sh
+COPY init.sh /init.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD /usr/sbin/php-fpm --nodaemonize --force-stderr
-
-WORKDIR /var/www
+WORKDIR $WWW_DIR
 
 EXPOSE 9000
 
@@ -51,4 +53,4 @@ COPY www.conf /etc/php-fpm.d/www.conf
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --install-dir=/usr/bin \
         --filename=composer && \
-    composer config -g github-oauth.github.com 89fdb82a7b2c50bf20c39bfb87614acd68901e80
+    composer config -g github-oauth.github.com $GITHUB_TOKEN

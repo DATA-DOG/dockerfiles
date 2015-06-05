@@ -2,13 +2,15 @@ FROM datadoglt/base:latest
 MAINTAINER "DataDog" <info@datadog.lt>
 
 ENV REMI_REPO http://rpms.famillecollet.com/enterprise/remi-release-7.rpm
+ENV GITHUB_TOKEN 89fdb82a7b2c50bf20c39bfb87614acd68901e80
+ENV WWW_DIR /var/www
 
 COPY entrypoint.sh /entrypoint.sh
+COPY init.sh /init.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 CMD /usr/sbin/php-fpm --nodaemonize
-
-WORKDIR /var/www
+WORKDIR $WWW_DIR
 
 EXPOSE 9000
 
