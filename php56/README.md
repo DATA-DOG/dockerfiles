@@ -9,3 +9,11 @@ with following extensions:
  - php-mbstring
  - php-intl
  - php-soap
+
+### Environment variables
+
+To customize PHP, you can set the following:
+
+ - `XDEBUG` - if is set and is not empty enables xdebug (xdebug.remote_enable=on)
+ - `XDEBUG_HOST` - if is not set, default docker addr is used
+ - `PHP_ARGS` - additional arguments for php-fpm
