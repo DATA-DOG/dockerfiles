@@ -31,9 +31,17 @@ RUN yum install -y \
         php-pdo \
         php-process \
         php-soap \
-        php-xml \
-        php-xdebug && \
+        php-devel \
+        php-pear \
+        make \
+        gcc \
+        gcc-c++ \
+        autoconf \
+        automake \
+        php-xml && \
     yum clean all
+
+RUN pecl install Xdebug
 
 # change permissions for default php session and wsdl cache directories
 RUN mkdir -p /var/lib/php/session && \
@@ -46,6 +54,7 @@ RUN echo "date.timezone=UTC" > /etc/php.d/40-timezone.ini && \
     echo "session.save_path=/var/lib/php/session" > /etc/php.d/40-sessions.ini && \
     echo "soap.wsdl_cache_dir=/var/lib/php/wsdlcache" > /etc/php.d/40-soap.ini && \
     echo "cgi.fix_pathinfo=0" > /etc/php.d/40-cgi.ini && \
+    echo "zend_extension=/usr/lib64/php/modules/xdebug.so;" > /etc/php.d/40-xdebug.ini && \
     echo "display_errors=stderr" > /etc/php.d/30-errors.ini
 
 # copy default configuration of fpm

@@ -17,7 +17,7 @@ if [ "$1" == "fpm" ]; then
         PHP_ARGS="$PHP_ARGS -d xdebug.remote_host=$XDEBUG_HOST"
     fi
     echo "[info] starting php-fpm: /usr/sbin/php-fpm --nodaemonize $PHP_ARGS"
-    exec /usr/sbin/php-fpm --nodaemonize --force-stderr $PHP_ARGS
+    exec /usr/sbin/php-fpm --nodaemonize $PHP_ARGS
 else
     echo "Run: $@"
     exec "$@"
