@@ -8,7 +8,7 @@ COPY entrypoint.sh /entrypoint.sh
 COPY init.sh /init.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-CMD /usr/sbin/php-fpm --nodaemonize
+CMD ["fpm"]
 WORKDIR $WWW_DIR
 
 EXPOSE 9000
@@ -31,7 +31,8 @@ RUN yum install -y \
         php-pdo \
         php-process \
         php-soap \
-        php-xml && \
+        php-xml \
+        php-xdebug && \
     yum clean all
 
 # change permissions for default php session and wsdl cache directories
