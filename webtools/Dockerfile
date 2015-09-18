@@ -22,7 +22,8 @@ RUN npm install -g \
         npm-ls-scripts \
         bower \
         gulp \
-        grunt
+        grunt \
+        grunt-cli
 
 ADD run.sh /usr/bin/run-webtools
 RUN chmod +x /usr/bin/run-webtools
