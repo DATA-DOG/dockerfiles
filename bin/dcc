@@ -2,5 +2,10 @@
 
 DIR=$(basename `pwd` | tr "[:upper:]" "[:lower:]" | tr -cd '[[:alnum:]]')
 CONTAINER="${DIR//-}""_$1_1"
+COMMAND="bash"
 
-docker exec -ti $CONTAINER sh -c 'TERM=xterm bash'
+if [ -z "$2" ]; then
+    COMMAND="$2"
+fi
+
+docker exec -ti $CONTAINER sh -c "TERM=xterm $2"
