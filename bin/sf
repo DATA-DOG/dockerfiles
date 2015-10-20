@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DIR=$(basename `pwd` | tr "[:upper:]" "[:lower:]" | tr -cd '[[:alnum:]]')
+CONTAINER="${DIR//-}""_php_1"
+
+docker exec -ti -u www $CONTAINER php /var/www/app/console $@

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DIR=$(basename `pwd` | tr "[:upper:]" "[:lower:]" | tr -cd '[[:alnum:]]')
+CONTAINER="${DIR//-}""_$1_1"
+
+docker exec -ti $CONTAINER sh -c 'TERM=xterm bash'
