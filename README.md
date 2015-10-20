@@ -12,5 +12,4 @@ To use these images, please refer to example yml files:
 # Helpers
 
  - `git clone git@github.com:DATA-DOG/dockerfiles.git ~/.datadog-dockerfiles`
- - `chmod +x ~/.datadog-dockerfiles/bin/*`
  - `export PATH=$PATH:~/.datadog-dockerfiles/bin`
