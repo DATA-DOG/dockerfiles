@@ -36,6 +36,8 @@ RUN yum install --enablerepo=remi,remi-php70 -y \
         php-pdo \
         php-process \
         php-soap \
+        php-memcached \
+        php-redis \
         php-xml && \
     yum clean all
 
