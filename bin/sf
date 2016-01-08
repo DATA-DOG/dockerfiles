@@ -3,4 +3,4 @@
 DIR=$(basename `pwd` | tr "[:upper:]" "[:lower:]" | tr -cd '[[:alnum:]]')
 CONTAINER="${DIR//-}""_php_1"
 
-docker exec -ti -u www $CONTAINER php /var/www/app/console $@
+docker exec -ti -u www $CONTAINER php -d memory_limit=-1 /var/www/app/console $@
