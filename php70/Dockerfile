@@ -34,11 +34,13 @@ RUN yum install --enablerepo=remi,remi-php70 -y \
         php-intl \
         php-mysql \
         php-mbstring \
+        php-memcached \
         php-pdo \
         php-process \
         php-soap \
         php-pecl-zip \
-        php-xml && \
+        php-xml \
+        php-pecl-xdebug && \
     yum clean all
 
 # change permissions for default php session and wsdl cache directories
@@ -57,3 +59,5 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
         --install-dir=/usr/bin \
         --filename=composer && \
     composer config -g github-oauth.github.com $GITHUB_TOKEN
+
+COPY debug.sh /usr/local/bin/php-debug

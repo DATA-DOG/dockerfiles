@@ -32,7 +32,8 @@ RUN yum install --enablerepo=remi,remi-php56 -y \
         php-iconv \
         php-intl \
         php-mysql \
-        php-mbstring \
+	php-mbstring \
+        php-memcached \
         php-pdo \
         php-process \
         php-soap \
