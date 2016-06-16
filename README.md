@@ -11,5 +11,5 @@ To use these images, please refer to example yml files:
 
 # Helpers
 
- - `git clone git@github.com:DATA-DOG/dockerfiles.git ~/.datadog-dockerfiles`
+ - `git clone https://github.com/DATA-DOG/dockerfiles.git ~/.datadog-dockerfiles`
  - `export PATH=$PATH:~/.datadog-dockerfiles/bin`

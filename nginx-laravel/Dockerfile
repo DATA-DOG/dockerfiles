@@ -4,6 +4,7 @@ MAINTAINER "DataDog" <info@datadog.lt>
 ENV APP_FILE "index"
 ENV PHP_HOST "php"
 ENV PUB_DIR "public"
+ENV UPLOAD_SIZE "10m"
 
 # project volume
 VOLUME /var/www
