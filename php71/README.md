@@ -1,6 +1,6 @@
 # base php-fpm image
 
-Based from centos7-base. Installs php 7.0 from remi repository
+Based from centos7-base. Installs php 7.1 from remi repository
 with following extensions:
 
  - php-mcrypt
