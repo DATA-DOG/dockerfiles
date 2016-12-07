@@ -9,12 +9,36 @@ To use these images, please refer to example yml files:
  - [examples/apache.yml](examples/apache.yml)
 
 
-# Helpers
+## Helpers
 
- - `git clone https://github.com/DATA-DOG/dockerfiles.git ~/.datadog-dockerfiles`
- - `export PATH=$PATH:~/.datadog-dockerfiles/bin`
+ 1. Clone this project
 
-# Using docker-gen
+    `git clone https://github.com/DATA-DOG/dockerfiles.git ~/.datadog-dockerfiles`
 
- - `service nginx stop && service apache2 stop`
- - `docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy`
+2. Add to your `~/.bashrc` file
+
+      ```
+      export PATH=$PATH:~/.datadog-dockerfiles/bin
+
+      alias run-behat="docker-compose exec --user www php /var/www/vendor/bin/behat"
+      alias run-unit="docker-compose exec --user www php /var/www/vendor/bin/phpunit"
+      alias dc="docker-compose"
+      ```
+
+## Using docker-gen
+
+### for Docker-Compose v1
+
+ ```
+ service nginx stop && service apache2 stop
+ docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock:ro jwilder/nginx-proxy
+ ```
+
+### for Docker-Compose v2
+
+Run on computer startup:
+
+```
+cd ~/.datadog-dockerfiles/proxy;
+dc up -d;
+```
