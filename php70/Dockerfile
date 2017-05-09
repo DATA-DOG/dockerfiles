@@ -26,7 +26,7 @@ RUN yum install --enablerepo=remi,remi-php70 -y \
         php-bcmath \
         php-cli \
         php-mcrypt \
-        php-memcached \
+        php-opcache \
         php-curl \
         php-fpm \
         php-gd \
