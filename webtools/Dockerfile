@@ -6,7 +6,7 @@ ENV GRUNT_TASK ""
 ENV GULP_TASK ""
 ENV NPM_TASK ""
 
-ENV NODE_VERSION v7.10.0
+ENV NODE_VERSION v6.10.3
 
 # Install node.js
 RUN yum install -y gcc-c++ make git tar && yum clean -y all
@@ -25,6 +25,8 @@ RUN npm install -g \
         gulp \
         grunt \
         grunt-cli
+
+ENV PATH "$PATH:/usr/local/node-$NODE_VERSION-linux-x64/bin"
 
 ADD run.sh /usr/bin/webtools
 
