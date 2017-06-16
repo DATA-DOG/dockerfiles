@@ -22,6 +22,7 @@ RUN curl -L http://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-linux-x64.ta
 # Install gulp / bower / grunt globaly
 RUN npm install -g \
         bower \
+        yarn \
         gulp \
         grunt \
         grunt-cli
