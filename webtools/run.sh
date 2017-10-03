@@ -19,7 +19,10 @@ if [ -f "$WWW/bower.json" ]; then
     bower --allow-root install
 fi
 
-if [ -f "$WWW/package.json" ]; then
+if [ -f "$WWW/yarn.lock" ]; then
+    echo "Running in yarn install"
+    yarn install
+elif [ -f "$WWW/package.json" ]; then
     echo "Running in npm install"
     npm install
 fi
