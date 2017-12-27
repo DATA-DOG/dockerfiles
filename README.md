@@ -42,3 +42,10 @@ Run on computer startup:
 cd ~/.datadog-dockerfiles/proxy;
 dc up -d;
 ```
+
+### building php
+
+```
+cd ~/.datadog-dockerfiles/php-base;
+./build.sh 70 1.0.0 # to build 7.0 with tag 1.0.0
+```
