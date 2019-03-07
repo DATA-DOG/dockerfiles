@@ -46,6 +46,9 @@ RUN echo "date.timezone=UTC" > /etc/php.d/30-timezone.ini && \
 COPY php/www.conf /etc/php-fpm.d/www.conf
 COPY php/debug.sh /usr/local/bin/php-debug
 
+# create php-fpm folder
+RUN mkdir -p /run/php-fpm
+
 # install composer
 RUN curl -sS https://getcomposer.org/installer | php -- \
         --install-dir=/usr/bin \
